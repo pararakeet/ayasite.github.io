@@ -3,97 +3,252 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>私のプロフィール</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホームページ</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: sans-serif;
-      background: #f5f7fb;
-      color: #333;
-      line-height: 1.8;
+      color: #222;
+      background: #fff;
     }
 
+    /* ヘッダー */
     header {
-      background: #344b70;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
+      height: 60px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+      z-index: 10;
+      background: #fff;
     }
 
-    header h1 {
-      margin-bottom: 5px;
-      font-size: 2.2rem;
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ハンバーガーボタン */
+    .menu-button {
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .menu-button span {
+      width: 26px;
+      height: 2px;
+      background: #222;
+      transition: 0.2s;
+    }
+
+    .menu-button[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-button[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* メニュー：リンクは縦並び */
+    .menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 8px 20px 16px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 4px 8px #00000010;
+    }
+
+    .menu.open {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu a {
+      display: block;
+      padding: 16px 8px;
+      color: #222;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu a:last-child {
+      border-bottom: none;
+    }
+
+    .menu a:hover,
+    .menu a[aria-current="page"] {
+      background: #f5f5f5;
+    }
+
+    /* メイン画像エリア */
+    .hero {
+      width: 100%;
+      height: 400px;
+      background: #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-placeholder {
+      color: #666;
+      text-align: center;
     }
 
     main {
-      max-width: 720px;
-      margin: 30px auto;
-      padding: 0 20px;
+      padding: 24px 20px;
     }
 
-    section {
-      background: white;
-      margin-bottom: 20px;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px #0000000a;
-    }
-
-    h2 {
-      color: #344b70;
-      border-bottom: 2px solid #e3eaf5;
-      padding-bottom: 8px;
-    }
-
-    a {
-      color: #2865b5;
+    main h1 {
+      font-size: 24px;
+      margin-top: 0;
     }
 
     footer {
+      padding: 20px;
       text-align: center;
-      padding: 25px;
       color: #777;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>こんにちは！</h1>
-    <p>私のホームページへようこそ</p>
+    <a class="logo" href="#0">HOME</a>
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+      aria-controls="navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="menu" id="navigation" aria-label="メインメニュー">
+      <a href="#0" data-page="0">0</a>
+      <a href="#1" data-page="1">1</a>
+      <a href="#2" data-page="2">2</a>
+      <a href="#3" data-page="3">3</a>
+    </nav>
   </header>
 
+  <section class="hero" id="hero">
+    <div class="hero-placeholder">
+      <p>画像表示エリア</p>
+      <p>高さ：400px</p>
+    </div>
+  </section>
+
   <main>
-    <section>
-      <h2>プロフィール</h2>
-      <p>はじめまして。私のホームページをご覧いただきありがとうございます。</p>
-      <p>ここでは、私のことや好きなことを紹介します。</p>
-    </section>
-
-    <section>
-      <h2>趣味</h2>
-      <ul>
-        <li>旅行</li>
-        <li>写真撮影</li>
-        <li>音楽鑑賞</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>このサイトについて</h2>
-      <p>HTMLとCSSを使って作成した個人ホームページです。</p>
-    </section>
-
-    <section>
-      <h2>リンク</h2>
-      <p><a href="https://github.com/">GitHub</a></p>
-    </section>
+    <h1 id="pageTitle">ページ 0</h1>
+    <p id="pageDescription">ホームページへようこそ。</p>
   </main>
 
   <footer>
-    <p>© 2026 My Homepage</p>
+    &copy; 2026
   </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navigation = document.getElementById("navigation");
+    const pageTitle = document.getElementById("pageTitle");
+    const pageDescription =
+      document.getElementById("pageDescription");
+    const hero = document.getElementById("hero");
+
+    function toggleMenu(force) {
+      const isOpen = typeof force === "boolean"
+        ? force
+        : !navigation.classList.contains("open");
+
+      navigation.classList.toggle("open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "メニューを閉じる" : "メニューを開く"
+      );
+    }
+
+    function showPage(page) {
+      pageTitle.textContent = `ページ ${page}`;
+      pageDescription.textContent =
+        page === "0"
+          ? "ホームページへようこそ。"
+          : `ページ ${page} の内容をここに追加できます。`;
+
+      document.querySelectorAll("[data-page]").forEach(link => {
+        if (link.dataset.page === page) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      // ページ0以外では画像エリアを非表示にする
+      hero.hidden = page !== "0";
+
+      toggleMenu(false);
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+
+    menuButton.addEventListener("click", () => toggleMenu());
+
+    navigation.addEventListener("click", event => {
+      const link = event.target.closest("[data-page]");
+      if (!link) return;
+      showPage(link.dataset.page);
+    });
+
+    window.addEventListener("hashchange", () => {
+      const page = location.hash.replace("#", "");
+      if (/^[0-3]$/.test(page)) {
+        showPage(page);
+      } else {
+        showPage("0");
+      }
+    });
+
+    // 初期表示
+    const initialPage = location.hash.replace("#", "");
+    showPage(/^[0-3]$/.test(initialPage) ? initialPage : "0");
+  </script>
 </body>
 </html>
