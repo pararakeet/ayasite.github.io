@@ -4,151 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ホームページ</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      color: #222;
-      background: #fff;
-    }
-
-    /* ヘッダー */
-    header {
-      height: 60px;
-      padding: 0 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #ddd;
-      position: relative;
-      z-index: 10;
-      background: #fff;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ハンバーガーボタン */
-    .menu-button {
-      width: 44px;
-      height: 44px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .menu-button span {
-      width: 26px;
-      height: 2px;
-      background: #222;
-      transition: 0.2s;
-    }
-
-    .menu-button[aria-expanded="true"] span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .menu-button[aria-expanded="true"] span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-button[aria-expanded="true"] span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* メニュー：リンクは縦並び */
-    .menu {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      padding: 8px 20px 16px;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-      box-shadow: 0 4px 8px #00000010;
-    }
-
-    .menu.open {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .menu a {
-      display: block;
-      padding: 16px 8px;
-      color: #222;
-      text-decoration: none;
-      border-bottom: 1px solid #eee;
-    }
-
-    .menu a:last-child {
-      border-bottom: none;
-    }
-
-    .menu a:hover,
-    .menu a[aria-current="page"] {
-      background: #f5f5f5;
-    }
-
-    /* メイン画像エリア */
-    .hero {
-      width: 100%;
-      height: 400px;
-      background: #e5e5e5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-placeholder {
-      color: #666;
-      text-align: center;
-    }
-
-    main {
-      padding: 24px 20px;
-    }
-
-    main h1 {
-      font-size: 24px;
-      margin-top: 0;
-    }
-
-    footer {
-      padding: 20px;
-      text-align: center;
-      color: #777;
-      font-size: 13px;
-    }
-  </style>
+  <meta name="description" content="シンプルなデザインのホームページ">
+  <title>HOME.</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <a class="logo" href="#0">HOME</a>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#home" class="logo">HOME.</a>
 
     <button
       class="menu-button"
@@ -162,93 +27,165 @@
       <span></span>
     </button>
 
-    <nav class="menu" id="navigation" aria-label="メインメニュー">
-      <a href="#0" data-page="0">0</a>
-      <a href="#1" data-page="1">1</a>
-      <a href="#2" data-page="2">2</a>
-      <a href="#3" data-page="3">3</a>
+    <nav class="menu" id="navigation">
+      <a href="#home" data-page="home">MAIN</a>
+      <a href="#gallery" data-page="gallery">GALLERY</a>
+      <a href="#coming" data-page="coming">COMING SOON</a>
+      <a href="#story" data-page="story">STORY</a>
     </nav>
   </header>
 
-  <section class="hero" id="hero">
-    <div class="hero-placeholder">
-      <p>画像表示エリア</p>
-      <p>高さ：400px</p>
-    </div>
-  </section>
-
   <main>
-    <h1 id="pageTitle">ページ 0</h1>
-    <p id="pageDescription">ホームページへようこそ。</p>
+
+    <!-- MAIN PAGE -->
+    <section class="page" id="home">
+
+      <div class="hero">
+        <img
+          src="images/main.jpg"
+          alt="メイン画像"
+          onerror="this.style.display='none'"
+        >
+      </div>
+
+      <div class="home-introduction">
+        <p class="section-label">WELCOME</p>
+
+        <h1>ようこそ！</h1>
+
+        <p>
+          ここにホームページの紹介文を掲載します。<br>
+          サイトの目的や紹介したい内容などを、<br>
+          自由に記載できます。
+        </p>
+      </div>
+
+      <div class="news">
+        <p class="section-label">INFORMATION</p>
+        <h2>お知らせ</h2>
+        <p>ホームページを公開しました。</p>
+      </div>
+
+    </section>
+
+    <!-- GALLERY PAGE -->
+    <section class="page" id="gallery" hidden>
+
+      <div class="page-heading">
+        <p class="section-label">GALLERY</p>
+        <h1>ギャラリー</h1>
+        <p>写真や作品を紹介するページです。</p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item">
+          <img src="images/gallery-01.jpg" alt="作品1"
+            onerror="this.style.display='none'">
+          <p>PHOTO 01</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-02.jpg" alt="作品2"
+            onerror="this.style.display='none'">
+          <p>PHOTO 02</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-03.jpg" alt="作品3"
+            onerror="this.style.display='none'">
+          <p>PHOTO 03</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-04.jpg" alt="作品4"
+            onerror="this.style.display='none'">
+          <p>PHOTO 04</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-05.jpg" alt="作品5"
+            onerror="this.style.display='none'">
+          <p>PHOTO 05</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-06.jpg" alt="作品6"
+            onerror="this.style.display='none'">
+          <p>PHOTO 06</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMING SOON PAGE -->
+    <section class="page" id="coming" hidden>
+
+      <div class="coming-content">
+        <p class="section-label">COMING SOON</p>
+
+        <h1>Coming Soon...</h1>
+
+        <div class="coming-line"></div>
+
+        <p>
+          このページは現在準備中です。<br>
+          公開までしばらくお待ちください。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- STORY PAGE -->
+    <section class="page" id="story" hidden>
+
+      <div class="page-heading">
+        <p class="section-label">STORY</p>
+        <h1>制作秘話</h1>
+        <p>このサイトができるまでのお話。</p>
+      </div>
+
+      <article class="story-content">
+
+        <div class="story-block">
+          <p class="story-number">01 / BEGINNING</p>
+          <h2>制作のきっかけ</h2>
+          <p>
+            ここにサイトを制作したきっかけを
+            書くことができます。
+          </p>
+        </div>
+
+        <div class="story-block">
+          <p class="story-number">02 / DESIGN</p>
+          <h2>デザインへのこだわり</h2>
+          <p>
+            色やレイアウトなど、
+            デザインについてのこだわりを紹介します。
+          </p>
+        </div>
+
+        <div class="story-block">
+          <p class="story-number">03 / FUTURE</p>
+          <h2>これからについて</h2>
+          <p>
+            今後追加していきたい機能や、
+            サイトの目標などを紹介します。
+          </p>
+        </div>
+
+      </article>
+
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    &copy; 2026
+    <p>© 2026 HOME. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    const menuButton = document.getElementById("menuButton");
-    const navigation = document.getElementById("navigation");
-    const pageTitle = document.getElementById("pageTitle");
-    const pageDescription =
-      document.getElementById("pageDescription");
-    const hero = document.getElementById("hero");
+  <script src="script.js"></script>
 
-    function toggleMenu(force) {
-      const isOpen = typeof force === "boolean"
-        ? force
-        : !navigation.classList.contains("open");
-
-      navigation.classList.toggle("open", isOpen);
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "メニューを閉じる" : "メニューを開く"
-      );
-    }
-
-    function showPage(page) {
-      pageTitle.textContent = `ページ ${page}`;
-      pageDescription.textContent =
-        page === "0"
-          ? "ホームページへようこそ。"
-          : `ページ ${page} の内容をここに追加できます。`;
-
-      document.querySelectorAll("[data-page]").forEach(link => {
-        if (link.dataset.page === page) {
-          link.setAttribute("aria-current", "page");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
-
-      // ページ0以外では画像エリアを非表示にする
-      hero.hidden = page !== "0";
-
-      toggleMenu(false);
-      window.scrollTo({ top: 0, behavior: "auto" });
-    }
-
-    menuButton.addEventListener("click", () => toggleMenu());
-
-    navigation.addEventListener("click", event => {
-      const link = event.target.closest("[data-page]");
-      if (!link) return;
-      showPage(link.dataset.page);
-    });
-
-    window.addEventListener("hashchange", () => {
-      const page = location.hash.replace("#", "");
-      if (/^[0-3]$/.test(page)) {
-        showPage(page);
-      } else {
-        showPage("0");
-      }
-    });
-
-    // 初期表示
-    const initialPage = location.hash.replace("#", "");
-    showPage(/^[0-3]$/.test(initialPage) ? initialPage : "0");
-  </script>
 </body>
 </html>
