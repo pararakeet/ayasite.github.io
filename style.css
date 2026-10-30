@@ -1,0 +1,432 @@
+
+/* =========================
+   BASIC
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Noto Sans JP",
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
+
+  color: #39443A;
+  background: #F7FAF4;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  height: 70px;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  z-index: 10;
+
+  background: #F7FAF4;
+  border-bottom: 1px solid #E3EBDF;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+}
+
+/* =========================
+   HAMBURGER MENU
+========================= */
+
+.menu-button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu-button span {
+  width: 25px;
+  height: 2px;
+  background: #39443A;
+  transition: 0.25s;
+}
+
+.menu-button[aria-expanded="true"]
+span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"]
+span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button[aria-expanded="true"]
+span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.menu {
+  display: none;
+
+  position: absolute;
+  top: 70px;
+  right: 0;
+
+  width: 260px;
+  padding: 12px 20px;
+
+  background: #F7FAF4;
+  border: 1px solid #E3EBDF;
+  box-shadow: 0 5px 15px #39443A12;
+}
+
+.menu.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu a {
+  padding: 16px 10px;
+
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+
+  border-bottom: 1px solid #E3EBDF;
+  transition: 0.2s;
+}
+
+.menu a:last-child {
+  border-bottom: none;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  background: #EAF5E8;
+  color: #667B4E;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+  min-height: 65vh;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  background: #98FB98;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   HOME INTRODUCTION
+========================= */
+
+.home-introduction {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 65px 25px;
+  text-align: center;
+}
+
+.home-introduction h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 15px 0 25px;
+}
+
+.home-introduction > p:last-child {
+  font-size: 14px;
+  line-height: 2.2;
+  color: #697368;
+}
+
+/* =========================
+   SECTION LABEL
+========================= */
+
+.section-label {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  color: #75834D;
+}
+
+/* =========================
+   NEWS
+========================= */
+
+.news {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 65px 25px;
+  text-align: center;
+  border-top: 1px solid #E3EBDF;
+}
+
+.news h2 {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.news p {
+  font-size: 14px;
+}
+
+/* =========================
+   PAGE HEADING
+========================= */
+
+.page-heading {
+  text-align: center;
+  padding: 65px 20px 45px;
+}
+
+.page-heading h1 {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.page-heading > p:last-child {
+  font-size: 13px;
+  color: #697368;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-grid {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 25px 70px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.gallery-item {
+  text-align: center;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #E7F2E4;
+  transition: 0.3s;
+}
+
+.gallery-item:hover img {
+  opacity: 0.8;
+}
+
+.gallery-item p {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #66704F;
+  margin-top: 10px;
+}
+
+/* =========================
+   COMING SOON
+========================= */
+
+.coming-content {
+  min-height: 430px;
+  padding: 80px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.coming-content h1 {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.coming-content > p:last-child {
+  font-size: 14px;
+  color: #697368;
+}
+
+.coming-line {
+  width: 55px;
+  height: 3px;
+  background: #BDB76B;
+  margin: 15px auto 20px;
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 30px 90px;
+}
+
+.story-block {
+  padding: 35px 0;
+  border-bottom: 1px solid #DCE5D7;
+}
+
+.story-number {
+  font-size: 11px;
+  color: #75834D;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.story-block h2 {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.7;
+  margin: 10px 0 18px;
+}
+
+.story-block > p:last-child {
+  font-size: 14px;
+  color: #596359;
+  line-height: 2.3;
+  white-space: pre-wrap;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 22px;
+  text-align: center;
+
+  border-top: 1px solid #E3EBDF;
+  background: #F1F6ED;
+
+  color: #697368;
+  font-size: 11px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .header {
+    height: 64px;
+    padding: 0 20px;
+  }
+
+  .menu {
+    top: 64px;
+    width: 100%;
+  }
+
+  .hero {
+    height: 300px;
+  }
+
+  .home-introduction {
+    padding: 50px 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 15px 50px;
+  }
+
+  .page-heading {
+    padding: 50px 15px 35px;
+  }
+
+  .page-heading h1 {
+    font-size: 26px;
+  }
+
+  .coming-content h1 {
+    font-size: 26px;
+  }
+
+  .news {
+    padding: 50px 20px;
+  }
+
+  .story-content {
+    padding: 0 22px 60px;
+  }
+
+  .story-block {
+    padding: 28px 0;
+  }
+
+  .story-block h2 {
+    font-size: 19px;
+  }
+}
