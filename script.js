@@ -95,3 +95,74 @@ showPage(
     ? initialPage
     : "home"
 );
+
+
+
+/* =========================
+   GALLERY IMAGE MODAL
+========================= */
+
+const imageModal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalClose = document.getElementById("modalClose");
+const modalCaption = document.getElementById("modalCaption");
+
+// 画像をクリックしたとき
+document.querySelector(".gallery-grid").addEventListener("click", event => {
+
+  const clickedImage = event.target.closest(".gallery-item img");
+
+  if (!clickedImage) return;
+
+  modalImage.src = clickedImage.src;
+  modalImage.alt = clickedImage.alt;
+
+  const caption = clickedImage.parentElement.querySelector("p");
+
+  modalCaption.textContent = caption
+    ? caption.textContent
+    : clickedImage.alt;
+
+  imageModal.classList.add("open");
+  imageModal.setAttribute("aria-hidden", "false");
+
+  document.body.style.overflow = "hidden";
+
+  modalClose.focus();
+});
+
+// モーダルを閉じる
+function closeImageModal() {
+
+  imageModal.classList.remove("open");
+  imageModal.setAttribute("aria-hidden", "true");
+
+  modalImage.src = "";
+
+  document.body.style.overflow = "";
+
+}
+
+// ×ボタン
+modalClose.addEventListener("click", closeImageModal);
+
+// 背景クリック
+imageModal.addEventListener("click", event => {
+
+  if (event.target === imageModal) {
+    closeImageModal();
+  }
+
+});
+
+// Escapeキー
+document.addEventListener("keydown", event => {
+
+  if (event.key === "Escape" &&
+      imageModal.classList.contains("open")) {
+
+    closeImageModal();
+
+  }
+
+});
