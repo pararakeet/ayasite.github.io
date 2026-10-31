@@ -509,3 +509,94 @@ footer {
   }
 
 }
+
+
+/* =========================
+   GALLERY IMAGE MODAL
+========================= */
+
+.gallery-item img {
+  cursor: pointer;
+}
+
+/* 背景 */
+.image-modal {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  background: rgba(25, 35, 27, 0.92);
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 50px 20px 30px;
+}
+
+/* モーダル表示 */
+.image-modal.open {
+  display: flex;
+}
+
+/* 拡大画像 */
+.image-modal img {
+  display: block;
+
+  max-width: 95%;
+  max-height: 82vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* 閉じるボタン */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  background: transparent;
+
+  color: #FFFFFF;
+  font-size: 38px;
+  font-weight: 300;
+
+  cursor: pointer;
+}
+
+/* 画像説明 */
+#modalCaption {
+  color: #FFFFFF;
+  font-size: 12px;
+  margin-top: 15px;
+  letter-spacing: 0.1em;
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+
+  .image-modal {
+    padding: 55px 10px 20px;
+  }
+
+  .image-modal img {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+
+  .modal-close {
+    top: 8px;
+    right: 12px;
+  }
+
+}
+
