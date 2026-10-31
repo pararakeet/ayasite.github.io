@@ -1,4 +1,3 @@
-
 const menuButton = document.getElementById("menuButton");
 const navigation = document.getElementById("navigation");
 
