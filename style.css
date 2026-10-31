@@ -430,3 +430,57 @@ footer {
     font-size: 19px;
   }
 }
+
+/* STORY IMAGE */
+
+.story-image {
+  margin: 25px 0;
+}
+
+.story-image img {
+  display: block;
+  width: 100%;
+  max-height: 450px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.story-image figcaption {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 11px;
+  color: #75834D;
+  letter-spacing: 0.08em;
+}
+
+/* STORY MULTIPLE IMAGES */
+
+.story-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.story-gallery .story-image {
+  margin: 0;
+}
+
+.story-gallery img {
+  aspect-ratio: 1 / 1;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .story-gallery {
+    gap: 10px;
+  }
+
+  .story-image {
+    margin: 20px 0;
+  }
+
+}
