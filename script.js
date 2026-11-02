@@ -4,7 +4,7 @@ const navigation = document.getElementById("navigation");
 const pages = [
   "home",
   "gallery",
-  "coming",
+  "setlist",
   "story"
 ];
 
